@@ -35,6 +35,7 @@ public class HttpUitl {
 	public void myRequest(String data,int flag,Context context) throws IOException{
 		DBManager dbManager=new DBManager(context);
 		dbManager.insert(data,flag);
+		dbManager.select();
 		
 		
 	}

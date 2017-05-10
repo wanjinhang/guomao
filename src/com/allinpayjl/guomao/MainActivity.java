@@ -8,7 +8,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.allinpay.usdk.core.data.BaseData;
 import com.allinpay.usdk.core.data.ResponseData;
 import com.allinpayjl.guomao.DAO.DBHelper;
-import com.allinpayjl.guomao.DAO.DBManager;
 import com.allinpayjl.guomao.service.LongRunningService;
 import com.allinpayjl.guomao.uitl.HttpUitl;
 import com.allinpayjl.guomao.uitl.Url;
@@ -44,25 +43,7 @@ public class MainActivity extends Activity {
 		init();
 		Intent intent = new Intent(this, LongRunningService.class);
 		startService(intent);
-		new Thread(){
-
-			/* (non-Javadoc)
-			 * @see java.lang.Thread#run()
-			 */
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				super.run();
-				try {
-					DBManager dbManager=new DBManager(myContext);
-					dbManager.select();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-		}.start();
+		
 
 	}
 	
