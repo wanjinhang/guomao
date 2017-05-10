@@ -1,4 +1,4 @@
-package com.allinpayjl.guomao;
+package com.allinpayjl.guomao.service;
 
 import java.util.Date;
 

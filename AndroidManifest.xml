@@ -32,10 +32,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".LongRunningService" >
+        <service android:name="com.allinpayjl.guomao.service.LongRunningService" >
         </service>
 
-        <receiver android:name=".AlarmReceiver" >
+        <receiver android:name="com.allinpayjl.guomao.service.AlarmReceiver" >
         </receiver>
     </application>
 
