@@ -1,11 +1,12 @@
-package com.allinpayjl.guomao;
+package com.allinpayjl.guomao.uitl;
 
 import java.io.IOException;
 
 import com.allinpay.usdk.core.data.BaseData;
 import com.allinpay.usdk.core.data.RequestData;
+import com.allinpayjl.guomao.R;
 import com.allinpayjl.guomao.DAO.DBManager;
-import com.allinpayjl.guomao.uitl.Url;
+import com.allinpayjl.guomao.activity.MainActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -249,10 +250,14 @@ public class JsInteration {
 		myContext.startActivity(it);
 		
 	}
+	@JavascriptInterface 
+	public void dataShow(){
+		
+	}
 	//测试
 	@JavascriptInterface
 	public void test(){
-		String json="{\"map\":{\"SIGN\":\"38639f056c961fd8bd71ddf01af297de\",\"REJCODE_CN\":\"交易成功\",\"REF_NO\":\"001476955679\",\"BATCH_NO\":\"000024\",\"TRANS_CHANNEL\":\"006\",\"AUTH_NO\":\"012345\",\"ORIG_DATE\":\"\",\"MEMO\":\"\",\"EXP_DATE\":\"2703\",\"CARDNO\":\"6222034200000171108\",\"ISS_NO\":\"\",\"ORIG_TRACE_NO\":\"\",\"TRANSTYPE\":\"002\",\"ORIG_REF_NO\":\"\",\"CARDTYPE\":\"001\",\"MERCH_NAME\":\"通联支付吉林分公司收银宝测试\",\"TIME\":\"085920\",\"BUSINESS_ID\":\"100100001\",\"ISS_NAME\":\"\",\"PRINT_FLAG\":\"1\",\"AMOUNT\":\"000000000001\",\"REJCODE\":\"00\",\"MERCH_ID\":\"990241048166000\",\"OPER_NO\":\"01\",\"TER_ID\":\"00000002\",\"DATE\":\"0505\",\"TRACE_NO\":\"001252\",\"TRANS_CHECK\":\"\"}}";
+		String json="{\"paraMap\":{\"SIGN\":\"38639f056c961fd8bd71ddf01af297de\",\"REJCODE_CN\":\"交易成功\",\"REF_NO\":\"001476955679\",\"BATCH_NO\":\"000024\",\"TRANS_CHANNEL\":\"006\",\"AUTH_NO\":\"012345\",\"ORIG_DATE\":\"\",\"MEMO\":\"\",\"EXP_DATE\":\"2703\",\"CARDNO\":\"6222034200000171108\",\"ISS_NO\":\"\",\"ORIG_TRACE_NO\":\"\",\"TRANSTYPE\":\"002\",\"ORIG_REF_NO\":\"\",\"CARDTYPE\":\"001\",\"MERCH_NAME\":\"通联支付吉林分公司收银宝测试\",\"TIME\":\"085920\",\"BUSINESS_ID\":\"100100001\",\"ISS_NAME\":\"\",\"PRINT_FLAG\":\"1\",\"AMOUNT\":\"000000000001\",\"REJCODE\":\"00\",\"MERCH_ID\":\"990241048166000\",\"OPER_NO\":\"01\",\"TER_ID\":\"00000002\",\"DATE\":\"0505\",\"TRACE_NO\":\"001252\",\"TRANS_CHECK\":\"\"}}";
 		DBManager dbManager=new DBManager(myContext);
 		dbManager.insert(json,1);
 	}

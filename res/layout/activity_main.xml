@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.allinpayjl.guomao.MainActivity" >
+    tools:context="com.allinpayjl.guomao.activity.MainActivity" >
 	<ProgressBar 
         android:id="@+id/index_progressBar"
         android:layout_width="fill_parent"

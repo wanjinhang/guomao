@@ -1,4 +1,4 @@
-package com.allinpayjl.guomao;
+package com.allinpayjl.guomao.activity;
 
 
 
@@ -7,9 +7,13 @@ import java.io.IOException;
 import com.alibaba.fastjson.JSONObject;
 import com.allinpay.usdk.core.data.BaseData;
 import com.allinpay.usdk.core.data.ResponseData;
+import com.allinpayjl.guomao.R;
 import com.allinpayjl.guomao.DAO.DBHelper;
+import com.allinpayjl.guomao.R.id;
+import com.allinpayjl.guomao.R.layout;
 import com.allinpayjl.guomao.service.LongRunningService;
 import com.allinpayjl.guomao.uitl.HttpUitl;
+import com.allinpayjl.guomao.uitl.JsInteration;
 import com.allinpayjl.guomao.uitl.Url;
 import android.annotation.SuppressLint;
 import android.app.Activity;
