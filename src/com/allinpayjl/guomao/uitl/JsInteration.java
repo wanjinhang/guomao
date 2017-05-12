@@ -1,20 +1,15 @@
 package com.allinpayjl.guomao.uitl;
 
-import java.io.IOException;
-
 import com.allinpay.usdk.core.data.BaseData;
 import com.allinpay.usdk.core.data.RequestData;
-import com.allinpayjl.guomao.R;
 import com.allinpayjl.guomao.DAO.DBManager;
+import com.allinpayjl.guomao.activity.DataActivity;
 import com.allinpayjl.guomao.activity.MainActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -199,48 +194,7 @@ public class JsInteration {
 		activity.startActivityForResult(intent, 2);
 		
 	}
-	//数据上传
-	@JavascriptInterface
-	public void allinpay_upload(){
-		DBManager dbManager=new DBManager(myContext);
-		int count=dbManager.getCount();
-		Dialog alertDialog = new AlertDialog.Builder(myContext).   
-                setTitle("销售数据上传").   
-                setMessage("有"+count+"条数据需要上传！").   
-                setIcon(R.drawable.ic_launcher). 
-                setPositiveButton("确定", new DialogInterface.OnClickListener() {   
-                    
-                    @Override   
-                    public void onClick(DialogInterface dialog, int which) {   
-                        // TODO Auto-generated method stub    
-                    	
-                    	DBManager dbManager=new DBManager(myContext);
-                    	try {
-							int num =dbManager.updataRes();
-							if(num<=0){
-								Toast.makeText(myContext, "数据已经全部上传", Toast.LENGTH_LONG).show();
-							}else{
-								Toast.makeText(myContext, "数据还有"+num+"条上传", Toast.LENGTH_LONG).show();
-							}
-							
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-                    }   
-                }).   
-                setNegativeButton("取消", new DialogInterface.OnClickListener() {   
-                       
-                    @Override   
-                    public void onClick(DialogInterface dialog, int which) {   
-                        // TODO Auto-generated method stub    
-                    	
-                    }   
-                }).
-                create();   
-        alertDialog.show();
-		
-	}
+	
 	//版本更新
 	@JavascriptInterface
 	public void allinpay_download(){
@@ -250,14 +204,16 @@ public class JsInteration {
 		myContext.startActivity(it);
 		
 	}
+	//数据上传
 	@JavascriptInterface 
 	public void dataShow(){
-		
+		Intent intent = new Intent(myContext,DataActivity.class);
+		myContext.startActivity(intent);
 	}
 	//测试
 	@JavascriptInterface
 	public void test(){
-		String json="{\"paraMap\":{\"SIGN\":\"38639f056c961fd8bd71ddf01af297de\",\"REJCODE_CN\":\"交易成功\",\"REF_NO\":\"001476955679\",\"BATCH_NO\":\"000024\",\"TRANS_CHANNEL\":\"006\",\"AUTH_NO\":\"012345\",\"ORIG_DATE\":\"\",\"MEMO\":\"\",\"EXP_DATE\":\"2703\",\"CARDNO\":\"6222034200000171108\",\"ISS_NO\":\"\",\"ORIG_TRACE_NO\":\"\",\"TRANSTYPE\":\"002\",\"ORIG_REF_NO\":\"\",\"CARDTYPE\":\"001\",\"MERCH_NAME\":\"通联支付吉林分公司收银宝测试\",\"TIME\":\"085920\",\"BUSINESS_ID\":\"100100001\",\"ISS_NAME\":\"\",\"PRINT_FLAG\":\"1\",\"AMOUNT\":\"000000000001\",\"REJCODE\":\"00\",\"MERCH_ID\":\"990241048166000\",\"OPER_NO\":\"01\",\"TER_ID\":\"00000002\",\"DATE\":\"0505\",\"TRACE_NO\":\"001252\",\"TRANS_CHECK\":\"\"}}";
+		String json="{\"map\":{\"SIGN\":\"38639f056c961fd8bd71ddf01af297de\",\"REJCODE_CN\":\"交易成功\",\"REF_NO\":\"001476955679\",\"BATCH_NO\":\"000024\",\"TRANS_CHANNEL\":\"006\",\"AUTH_NO\":\"012345\",\"ORIG_DATE\":\"\",\"MEMO\":\"\",\"EXP_DATE\":\"2703\",\"CARDNO\":\"6222034200000171108\",\"ISS_NO\":\"\",\"ORIG_TRACE_NO\":\"\",\"TRANSTYPE\":\"002\",\"ORIG_REF_NO\":\"\",\"CARDTYPE\":\"001\",\"MERCH_NAME\":\"通联支付吉林分公司收银宝测试\",\"TIME\":\"085920\",\"BUSINESS_ID\":\"100100001\",\"ISS_NAME\":\"\",\"PRINT_FLAG\":\"1\",\"AMOUNT\":\"000000000001\",\"REJCODE\":\"00\",\"MERCH_ID\":\"990241048166000\",\"OPER_NO\":\"01\",\"TER_ID\":\"00000002\",\"DATE\":\"0505\",\"TRACE_NO\":\"001252\",\"TRANS_CHECK\":\"\"}}";
 		DBManager dbManager=new DBManager(myContext);
 		dbManager.insert(json,1);
 	}
