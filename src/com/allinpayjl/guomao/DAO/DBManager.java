@@ -2,7 +2,6 @@ package com.allinpayjl.guomao.DAO;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Formatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,8 +50,8 @@ public class DBManager {
 		
 		while (cursor.moveToNext()) {  
 			
-			int id = cursor.getInt(0); //»ñÈ¡µÚÒ»ÁĞµÄÖµ,µÚÒ»ÁĞµÄË÷Òı´Ó0¿ªÊ¼  
-			String json = cursor.getString(1);//»ñÈ¡µÚ¶şÁĞµÄÖµ  
+			int id = cursor.getInt(0); //è·å–ç¬¬ä¸€åˆ—çš„å€¼,ç¬¬ä¸€åˆ—çš„ç´¢å¼•ä»0å¼€å§‹  
+			String json = cursor.getString(1);//è·å–ç¬¬äºŒåˆ—çš„å€¼  
 			int flag =cursor.getInt(3);
 			HttpUitl httpUitl=new HttpUitl();
 			httpUitl.updataRequest(id, json,flag, myContext);
@@ -68,8 +67,8 @@ public class DBManager {
 			
 			while (cursor.moveToNext()) {  
 				
-				int id = cursor.getInt(0); //»ñÈ¡µÚÒ»ÁĞµÄÖµ,µÚÒ»ÁĞµÄË÷Òı´Ó0¿ªÊ¼  
-				String json = cursor.getString(1);//»ñÈ¡µÚ¶şÁĞµÄÖµ  
+				int id = cursor.getInt(0); //è·å–ç¬¬ä¸€åˆ—çš„å€¼,ç¬¬ä¸€åˆ—çš„ç´¢å¼•ä»0å¼€å§‹  
+				String json = cursor.getString(1);//è·å–ç¬¬äºŒåˆ—çš„å€¼  
 				int flag =cursor.getInt(3);
 				HttpUitl httpUitl=new HttpUitl();
 				httpUitl.updataRequest(id, json,flag, myContext);
@@ -90,9 +89,8 @@ public class DBManager {
 		 int i=1;
          Map<String, Object> map ;
 			while (cursor.moveToNext()) {  
-				
-				int id = cursor.getInt(0); //»ñÈ¡µÚÒ»ÁĞµÄÖµ,µÚÒ»ÁĞµÄË÷Òı´Ó0¿ªÊ¼  
-				String json = cursor.getString(1);//»ñÈ¡µÚ¶şÁĞµÄÖµ 
+				 
+				String json = cursor.getString(1);//è·å–ç¬¬äºŒåˆ—çš„å€¼ 
 				int stastus =cursor.getInt(2);
 				int flag =cursor.getInt(3);
 				JSONObject object=JSON.parseObject(json);
@@ -105,14 +103,14 @@ public class DBManager {
 				map = new HashMap<String, Object>();
 				map.put("number", ""+i);
 				if(flag>0){
-					map.put("amount", "£¤-"+aa);
+					map.put("amount", "ï¿¥-"+aa);
 				}else{
-					map.put("amount", "£¤"+aa);
+					map.put("amount", "ï¿¥"+aa);
 				}
 				if(stastus>0){
-					map.put("status", "ÒÑÍ¬²½");
+					map.put("status", "å·²åŒæ­¥");
 				}else{
-					map.put("status", "Î´Í¬²½");
+					map.put("status", "æœªåŒæ­¥");
 				}
 				StringBuilder  dateTmp= new StringBuilder (object2.getString("DATE"));  
 				dateTmp.insert(2, "-");    

@@ -46,7 +46,7 @@ public class HttpUitl {
 			JSONObject jsonObject= JSONObject.parseObject(resJson);
 			if(jsonObject !=null ){
 				String status=jsonObject.getString("status");
-				if(status.equals("1")){
+				if("1".equals(status)){
 					DBManager dbManager=new DBManager(context);
 					dbManager.updateStatus(id);
 					break;

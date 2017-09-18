@@ -25,10 +25,10 @@ public class DBHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		/**
-		 * Id     Ö÷¼ü id
-		 * Json   json¸ñÊ½µÄÖ§¸¶·µ»Ø²ÎÊı
-		 * Status ÊÇ·ñÓë·şÎñÆ÷Í¬²½µÄ±êÊ¶
-		 * Flag   Ö§¸¶ 0  ÍË»õ/³·Ïú 1
+		 * Id     ä¸»é”® id
+		 * Json   jsonæ ¼å¼çš„æ”¯ä»˜è¿”å›å‚æ•°
+		 * Status æ˜¯å¦ä¸æœåŠ¡å™¨åŒæ­¥çš„æ ‡è¯†
+		 * Flag   æ”¯ä»˜ 0  é€€è´§/æ’¤é”€ 1
 		 * 			 
 		 */
 		String sql = "create table if not exists " + TABLE_NAME + " (Id integer primary key, Json text, Status integer,Flag integer)";

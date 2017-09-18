@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="allinpay_v20161125">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/allinpay_v20161125.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

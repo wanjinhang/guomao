@@ -101,7 +101,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        //ÏÔÊ¾½ø¶È
+        //æ˜¾ç¤ºè¿›åº¦
 		myWebView.setWebChromeClient(new WebChromeClient(){
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -117,7 +117,7 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && myWebView.canGoBack()) {
-			myWebView.goBack();// ·µ»ØÇ°Ò»¸öÒ³Ãæ
+			myWebView.goBack();// è¿”å›å‰ä¸€ä¸ªé¡µé¢
 	             return true;
 	         }
 	         return super.onKeyDown(keyCode, event);
@@ -137,12 +137,12 @@ public class MainActivity extends Activity {
 		final HttpUitl httpUitl=new HttpUitl();
 		
 		switch (requestCode) {
-		case 0:										//Ö§¸¶Íê³ÉÊ±
+		case 0:										//æ”¯ä»˜å®Œæˆæ—¶
 
 			String responeRejcode = respone.getValue(BaseData.REJCODE);
-			int code=0;//½»Ò×Ê§°Ü
+			int code=0;//äº¤æ˜“å¤±è´¥
 			if((requestCode==0)&&responeRejcode.equals("00")){
-				code = 1;//½»Ò×³É¹¦
+				code = 1;//äº¤æ˜“æˆåŠŸ
 			}
 			
 			Toast.makeText(this,respone.getValue(BaseData.REJCODE_CN) ,Toast.LENGTH_LONG).show();
@@ -173,7 +173,7 @@ public class MainActivity extends Activity {
 		case 1:
 			Toast.makeText(this,respone.getValue(BaseData.REJCODE_CN) ,Toast.LENGTH_LONG).show();
 			break;
-		case 2: 						//³·ÏúºÍÍË»õ
+		case 2: 						//æ’¤é”€å’Œé€€è´§
 			String void_rejcode = respone.getValue(BaseData.REJCODE);
 			Toast.makeText(this,respone.getValue(BaseData.REJCODE_CN) ,Toast.LENGTH_LONG).show();
 			if(void_rejcode.equals("00")){

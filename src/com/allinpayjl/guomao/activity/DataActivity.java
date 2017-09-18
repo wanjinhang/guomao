@@ -66,16 +66,16 @@ public class DataActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.clear:
 			new  AlertDialog.Builder(this)   
-			.setTitle("Çå³ıÒÑÍ¬²½Êı¾İ" )  
-			.setMessage("ÕæµÄÒªÇå³ıÃ´£¿" )  
-			.setPositiveButton("ÊÇ" , new DialogInterface.OnClickListener() {
+			.setTitle("æ¸…é™¤å·²åŒæ­¥æ•°æ®" )  
+			.setMessage("çœŸçš„è¦æ¸…é™¤ä¹ˆï¼Ÿ" )  
+			.setPositiveButton("æ˜¯" , new DialogInterface.OnClickListener() {
 				
 				public void onClick(DialogInterface dialog, int which) {
 					// TODO Auto-generated method stub
 					dbManager.clear();
 				}
 			})  
-			.setNegativeButton("·ñ" , new DialogInterface.OnClickListener() {
+			.setNegativeButton("å¦" , new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
