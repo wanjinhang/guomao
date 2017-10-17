@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -33,9 +34,9 @@ public class JsInteration {
 	}
 
 	/**
-	 * Ïû·Ñ
-	 * @param price ½ğ¶î
-	 * @param payType Ö§¸¶·½Ê½
+	 * æ¶ˆè´¹
+	 * @param price é‡‘é¢
+	 * @param payType æ”¯ä»˜æ–¹å¼
 	 */
 	@JavascriptInterface
 	public void allinpay_pay( String price,String payType) {
@@ -49,25 +50,25 @@ public class JsInteration {
 
 			Bundle bundle = new Bundle();
 			RequestData data = new RequestData();
-			data.putValue(RequestData.AMOUNT, a);// ½ğ¶î£¨12Î»£¬·ÖÎªµ¥Î»£¬²»×ã×ó²¹0£©
+			data.putValue(RequestData.AMOUNT, a);// é‡‘é¢ï¼ˆ12ä½ï¼Œåˆ†ä¸ºå•ä½ï¼Œä¸è¶³å·¦è¡¥0ï¼‰
 			if(payType.equals("qrcode")){
-				data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_QRCODE);// ÒøĞĞ¿¨½»Ò×
+				data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_QRCODE);// é“¶è¡Œå¡äº¤æ˜“
 			}else{
-				data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// ÒøĞĞ¿¨½»Ò×
+				data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// é“¶è¡Œå¡äº¤æ˜“
 			}
 			
-			data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_SALE);// Ïû·Ñ²Ù×÷;
+			data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_SALE);// æ¶ˆè´¹æ“ä½œ;
 			bundle.putSerializable(RequestData.KEY_ERTRAS, data);
 			intent.putExtras(bundle);
 			activity.startActivityForResult(intent, 0);
 
 		} catch (Exception e) {
-			Toast.makeText(myContext, "Î´°²×°Ö§¸¶¿Ø¼ş,ÇëÏÈ°²×°ÏàÓ¦Ö§¸¶¿Ø¼ş", Toast.LENGTH_LONG).show();
+			Toast.makeText(myContext, "æœªå®‰è£…æ”¯ä»˜æ§ä»¶,è¯·å…ˆå®‰è£…ç›¸åº”æ”¯ä»˜æ§ä»¶", Toast.LENGTH_LONG).show();
 		}
 	}
 	/**
-	 * ¸ü¶à²Ù×÷
-	 * @param type ²Ù×÷ÀàĞÍ
+	 * æ›´å¤šæ“ä½œ
+	 * @param type æ“ä½œç±»å‹
 	 */
 	@JavascriptInterface
 	public void allinpay_more(String type){
@@ -77,32 +78,32 @@ public class JsInteration {
 
 			Bundle bundle = new Bundle();
 			RequestData data = new RequestData();
-			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// ÒøĞĞ¿¨½»Ò×
+			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// é“¶è¡Œå¡äº¤æ˜“
 			switch (type) {
 			case "login":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_LOGON);// Ç©µ½;
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_LOGON);// ç­¾åˆ°;
 				break;
 			case "balance":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_GET_BALANCE);// ²éÒøĞĞ¿¨Óà¶î;
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_GET_BALANCE);// æŸ¥é“¶è¡Œå¡ä½™é¢;
 				break;
 			case "detail":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_GET_DETAIL);// ÏÔÊ¾½»Ò×Ã÷Ï¸;
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_GET_DETAIL);// æ˜¾ç¤ºäº¤æ˜“æ˜ç»†;
 				break;
 			case "settle":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_SETTLE);//½áËã
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_SETTLE);//ç»“ç®—
 				break;
 			case "reprint_settle":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REPRINT_SETTLE);//ÖØ´ò½áËã
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REPRINT_SETTLE);//é‡æ‰“ç»“ç®—
 				break;
 			case "print_total":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_PRINT_TOTAL);//´òÓ¡×Ü»ã
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_PRINT_TOTAL);//æ‰“å°æ€»æ±‡
 				break;
 			case "print_detail":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_PRINT_DETAIL);//´òÓ¡Ã÷Ï¸
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_PRINT_DETAIL);//æ‰“å°æ˜ç»†
 				break;
 			case "reprint":
-				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REPRINT);//´òÓ¡Ä©±Ê
-				data.putValue(RequestData.ORIG_TRACE_NO, "000000");//´òÓ¡Ä©±Ê
+				data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REPRINT);//æ‰“å°æœ«ç¬”
+				data.putValue(RequestData.ORIG_TRACE_NO, "000000");//æ‰“å°æœ«ç¬”
 				break;
 			default:
 				break;
@@ -114,13 +115,13 @@ public class JsInteration {
 			activity.startActivityForResult(intent, 1);
 
 		} catch (Exception e) {
-			Toast.makeText(myContext, "Î´°²×°Ö§¸¶¿Ø¼ş,ÇëÏÈ°²×°ÏàÓ¦Ö§¸¶¿Ø¼ş", Toast.LENGTH_LONG).show();
+			Toast.makeText(myContext, "æœªå®‰è£…æ”¯ä»˜æ§ä»¶,è¯·å…ˆå®‰è£…ç›¸åº”æ”¯ä»˜æ§ä»¶", Toast.LENGTH_LONG).show();
 		}
 	}
 	/**
-	 * Ïû·Ñ³·Ïú   
-	 * @param code  Æ¾Ö¤ºÅ
-	 * @param type  Ïû·ÑÀàĞÍ
+	 * æ¶ˆè´¹æ’¤é”€   
+	 * @param code  å‡­è¯å·
+	 * @param type  æ¶ˆè´¹ç±»å‹
 	 */
 	@JavascriptInterface
 	public void allinpay_void(String code,String type){
@@ -131,20 +132,20 @@ public class JsInteration {
 		Bundle bundle = new Bundle();
 		RequestData data = new RequestData();
 		if(type.equals("qrcode")){
-			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_QRCODE);// É¨Âë½»Ò×
+			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_QRCODE);// æ‰«ç äº¤æ˜“
 		}else{
-			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// ÒøĞĞ¿¨½»Ò×
+			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// é“¶è¡Œå¡äº¤æ˜“
 		}
 		
-		data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_VOID);// Ïû·Ñ³·Ïú
-		data.putValue(RequestData.ORIG_TRACE_NO, code);// Æ¾Ö¤ºÅ
+		data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_VOID);// æ¶ˆè´¹æ’¤é”€
+		data.putValue(RequestData.ORIG_TRACE_NO, code);// å‡­è¯å·
 		bundle.putSerializable(RequestData.KEY_ERTRAS, data);
 		intent.putExtras(bundle);
 		activity.startActivityForResult(intent, 2);
 	}
 	/**
-	 * ´òÓ¡Ö¸¶¨½»Ò×
-	 * @param code  Æ¾Ö¤ºÅ
+	 * æ‰“å°æŒ‡å®šäº¤æ˜“
+	 * @param code  å‡­è¯å·
 	 */
 	@JavascriptInterface
 	public void allinpay_reprint(String code){
@@ -153,40 +154,44 @@ public class JsInteration {
 
 		Bundle bundle = new Bundle();
 		RequestData data = new RequestData();
-		data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// ÒøĞĞ¿¨½»Ò×
-		data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REPRINT);//´òÓ¡
-		data.putValue(RequestData.ORIG_TRACE_NO, code);//´òÓ¡Ö¸¶¨½»Ò×
+		data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// é“¶è¡Œå¡äº¤æ˜“
+		data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REPRINT);//æ‰“å°
+		data.putValue(RequestData.ORIG_TRACE_NO, code);//æ‰“å°æŒ‡å®šäº¤æ˜“
 		bundle.putSerializable(RequestData.KEY_ERTRAS, data);
 		intent.putExtras(bundle);
 		activity.startActivityForResult(intent, 1);
 		
 	}
 	/**
-	 * ÍË»õ
-	 * @param type  Ïû·ÑÀàĞÍ
-	 * @param amount ½ğ¶î
-	 * @param ref_no ²Î¿¼ºÅ
-	 * @param date ½»Ò×ÈÕÆÚ
+	 * é€€è´§
+	 * @param type  æ¶ˆè´¹ç±»å‹
+	 * @param amount é‡‘é¢
+	 * @param ref_no å‚è€ƒå·
+	 * @param date äº¤æ˜“æ—¥æœŸ
 	 */
 	@JavascriptInterface
 	public void allinpay_refund(String type,String amount,String ref_no,String date){
 		amount= amount.replace(".", "");
 		int i =Integer.parseInt(amount);
 		String a = String.format("%012d", i);
+		Log.e("haha",a);
 		Intent intent = new Intent();
 		intent.setComponent(new ComponentName("com.allinpay.usdk", "com.allinpay.usdk.MainActivity"));
 
 		Bundle bundle = new Bundle();
 		RequestData data = new RequestData();
 		if(type.equals("qrcode")){
-			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_QRCODE);// É¨Âë½»Ò×
-			data.putValue(RequestData.ORIG_TRACE_NO, ref_no);
-		}else{
-			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// ÒøĞĞ¿¨½»Ò×
-			data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REFUND);//ÍË»õ
+			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_QRCODE);// æ‰«ç äº¤æ˜“
+			data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REFUND);//é€€è´§
 			data.putValue(RequestData.AMOUNT,a );
-			data.putValue(RequestData.ORIG_REF_NO, ref_no);//²Î¿¼ºÅ
-			data.putValue(RequestData.ORIG_DATE, date);//Ô­½»Ò×ÈÕÆÚ
+			data.putValue(RequestData.ORIG_TRACE_NO, ref_no);//å‚è€ƒå·
+			data.putValue(RequestData.ORIG_DATE, date);//åŸäº¤æ˜“æ—¥æœŸ
+		}else{
+			data.putValue(RequestData.CARDTYPE, BaseData.CARDTYPE_BANKCARD);// é“¶è¡Œå¡äº¤æ˜“
+			data.putValue(RequestData.TRANSTYPE, BaseData.TRANSTYPE_REFUND);//é€€è´§
+			data.putValue(RequestData.AMOUNT,a );
+			data.putValue(RequestData.ORIG_REF_NO, ref_no);//å‚è€ƒå·
+			data.putValue(RequestData.ORIG_DATE, date);//åŸäº¤æ˜“æ—¥æœŸ
 		}
 		
 		bundle.putSerializable(RequestData.KEY_ERTRAS, data);
@@ -195,25 +200,25 @@ public class JsInteration {
 		
 	}
 	
-	//°æ±¾¸üĞÂ
+	//ç‰ˆæœ¬æ›´æ–°
 	@JavascriptInterface
 	public void allinpay_download(){
-		Toast.makeText(myContext, "°æ±¾¸üĞÂ", Toast.LENGTH_LONG).show();
+		Toast.makeText(myContext, "ç‰ˆæœ¬æ›´æ–°", Toast.LENGTH_LONG).show();
 		final Uri uri = Uri.parse(Url.upDataUrl);         
 		final Intent it = new Intent(Intent.ACTION_VIEW, uri);         
 		myContext.startActivity(it);
 		
 	}
-	//Êı¾İÉÏ´«
+	//æ•°æ®ä¸Šä¼ 
 	@JavascriptInterface 
 	public void dataShow(){
 		Intent intent = new Intent(myContext,DataActivity.class);
 		myContext.startActivity(intent);
 	}
-	//²âÊÔ
+	//æµ‹è¯•
 	@JavascriptInterface
 	public void test(){
-		String json="{\"map\":{\"SIGN\":\"38639f056c961fd8bd71ddf01af297de\",\"REJCODE_CN\":\"½»Ò×³É¹¦\",\"REF_NO\":\"001476955679\",\"BATCH_NO\":\"000024\",\"TRANS_CHANNEL\":\"006\",\"AUTH_NO\":\"012345\",\"ORIG_DATE\":\"\",\"MEMO\":\"\",\"EXP_DATE\":\"2703\",\"CARDNO\":\"6222034200000171108\",\"ISS_NO\":\"\",\"ORIG_TRACE_NO\":\"\",\"TRANSTYPE\":\"002\",\"ORIG_REF_NO\":\"\",\"CARDTYPE\":\"001\",\"MERCH_NAME\":\"Í¨ÁªÖ§¸¶¼ªÁÖ·Ö¹«Ë¾ÊÕÒø±¦²âÊÔ\",\"TIME\":\"085920\",\"BUSINESS_ID\":\"100100001\",\"ISS_NAME\":\"\",\"PRINT_FLAG\":\"1\",\"AMOUNT\":\"000000000001\",\"REJCODE\":\"00\",\"MERCH_ID\":\"990241048166000\",\"OPER_NO\":\"01\",\"TER_ID\":\"00000002\",\"DATE\":\"0505\",\"TRACE_NO\":\"001252\",\"TRANS_CHECK\":\"\"}}";
+		String json="{\"map\":{\"SIGN\":\"38639f056c961fd8bd71ddf01af297de\",\"REJCODE_CN\":\"äº¤æ˜“æˆåŠŸ\",\"REF_NO\":\"001476955679\",\"BATCH_NO\":\"000024\",\"TRANS_CHANNEL\":\"006\",\"AUTH_NO\":\"012345\",\"ORIG_DATE\":\"\",\"MEMO\":\"\",\"EXP_DATE\":\"2703\",\"CARDNO\":\"6222034200000171108\",\"ISS_NO\":\"\",\"ORIG_TRACE_NO\":\"\",\"TRANSTYPE\":\"002\",\"ORIG_REF_NO\":\"\",\"CARDTYPE\":\"001\",\"MERCH_NAME\":\"é€šè”æ”¯ä»˜å‰æ—åˆ†å…¬å¸æ”¶é“¶å®æµ‹è¯•\",\"TIME\":\"085920\",\"BUSINESS_ID\":\"100100001\",\"ISS_NAME\":\"\",\"PRINT_FLAG\":\"1\",\"AMOUNT\":\"000000000001\",\"REJCODE\":\"00\",\"MERCH_ID\":\"990241048166000\",\"OPER_NO\":\"01\",\"TER_ID\":\"00000002\",\"DATE\":\"0505\",\"TRACE_NO\":\"001252\",\"TRANS_CHECK\":\"\"}}";
 		DBManager dbManager=new DBManager(myContext);
 		dbManager.insert(json,1);
 	}
