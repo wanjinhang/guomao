@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\Download\guomao\libs\okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="E:\Download\guomao\build\intermediates\pre-dexed\debug\okhttp-3.6.0_156be69eb18bf72af0472e55fa35e192179e4872.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Download\guomao\libs\allinpay_v20161125.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18ea81763dd43ef02c416f22ccb50964243896bd">
+        <dex dex="E:\Download\guomao\build\intermediates\pre-dexed\debug\allinpay_v20161125_b8e74d77cbdc8c045b48e68c9444d91665920d3e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Download\guomao\libs\fastjson-1.2.30.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8087c3a893d21d0a3ae1d5efa6ee1aec23f3c3da">
+        <dex dex="E:\Download\guomao\build\intermediates\pre-dexed\debug\fastjson-1.2.30_4207909290839a51d42d398335ca23c71d49a651.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Download\guomao\libs\okhttputils-2_6_2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="0b58ea597d7d7a6ef0ec42ae3994985f7e86553f">
+        <dex dex="E:\Download\guomao\build\intermediates\pre-dexed\debug\okhttputils-2_6_2_12de9572e1e2eb3f29a01ab0d7ea635027819926.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Download\guomao\libs\android-support-v4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="1dc1f63cee098b27db60b9a2833fd7ca58f89636">
+        <dex dex="E:\Download\guomao\build\intermediates\pre-dexed\debug\android-support-v4_240f52196a75b341b2f2e22b738d9d127dd1c665.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Download\guomao\libs\okio-1.11.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="E:\Download\guomao\build\intermediates\pre-dexed\debug\okio-1.11.0_c0534b4c281956066027e8d6247809a92679f749.jar" />
+    </item>
+
+</items>

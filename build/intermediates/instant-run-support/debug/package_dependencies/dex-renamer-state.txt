@@ -1,0 +1,19 @@
+#Mon Sep 18 14:15:59 CST 2017
+renamed.5=classes4.dex
+renamed.4=classes.dex
+renamed.3=classes3.dex
+renamed.2=classes5.dex
+renamed.1=classes6.dex
+renamed.0=classes2.dex
+base.5=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\okhttp-3.6.0_156be69eb18bf72af0472e55fa35e192179e4872
+base.4=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\allinpay_v20161125_b8e74d77cbdc8c045b48e68c9444d91665920d3e
+base.3=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\fastjson-1.2.30_4207909290839a51d42d398335ca23c71d49a651
+base.2=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\okhttputils-2_6_2_12de9572e1e2eb3f29a01ab0d7ea635027819926
+base.1=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\okio-1.11.0_c0534b4c281956066027e8d6247809a92679f749
+base.0=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\android-support-v4_240f52196a75b341b2f2e22b738d9d127dd1c665
+file.5=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\okhttp-3.6.0_156be69eb18bf72af0472e55fa35e192179e4872\\classes.dex
+file.4=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\allinpay_v20161125_b8e74d77cbdc8c045b48e68c9444d91665920d3e\\classes.dex
+file.3=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\fastjson-1.2.30_4207909290839a51d42d398335ca23c71d49a651\\classes.dex
+file.2=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\okhttputils-2_6_2_12de9572e1e2eb3f29a01ab0d7ea635027819926\\classes.dex
+file.1=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\okio-1.11.0_c0534b4c281956066027e8d6247809a92679f749\\classes.dex
+file.0=E\:\\Download\\guomao\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\android-support-v4_240f52196a75b341b2f2e22b738d9d127dd1c665\\classes.dex
